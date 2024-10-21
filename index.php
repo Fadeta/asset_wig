@@ -17,22 +17,22 @@ require 'cek.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #f8f9fa; /* Light background color */
+            background-color: #f8f9fa;
         }
         .modal-body {
-            padding: 2rem; /* More padding for a spacious feel */
+            padding: 2rem; 
         }
         .form-control {
-            border-radius: 0.5rem; /* Rounded corners */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border-radius: 0.5rem; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
         }
         .btn-primary {
-            border-radius: 0.5rem; /* Rounded button */
-            transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+            border-radius: 0.5rem; 
+            transition: background-color 0.3s, border-color 0.3s; 
         }
         .btn-primary:hover {
-            background-color: #0056b3; /* Darker shade on hover */
-            border-color: #004085; /* Darker border on hover */
+            background-color: #0056b3;
+            border-color: #004085;
         }
     </style>
 </head>
