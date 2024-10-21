@@ -17,22 +17,22 @@ require 'cek.php';
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <style>
         body {
-            background-color: #f8f9fa; /* Light background color */
+            background-color: #f8f9fa; 
         }
         .modal-body {
-            padding: 2rem; /* More padding for a spacious feel */
+            padding: 2rem; 
         }
         .form-control {
-            border-radius: 0.5rem; /* Rounded corners */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border-radius: 0.5rem; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
         }
         .btn-primary {
-            border-radius: 0.5rem; /* Rounded button */
-            transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+            border-radius: 0.5rem;
+            transition: background-color 0.3s, border-color 0.3s; 
         }
         .btn-primary:hover {
-            background-color: #0056b3; /* Darker shade on hover */
-            border-color: #004085; /* Darker border on hover */
+            background-color: #0056b3; 
+            border-color: #004085; 
         }
     </style>
     </head>
@@ -42,7 +42,7 @@ require 'cek.php';
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
 
             <!-- Navbar-->
-            <ul class="navbar-nav ml-auto"> <!-- Use ml-auto to push items to the right -->
+            <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -83,19 +83,30 @@ require 'cek.php';
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
+                                            <th>Tanggal</th>
                                             <th>Nama Barang</th>
-                                            <th>Deskripsi</th>
-                                            <th>Stock</th>
+                                            <th>Jumlah</th>
+                                            <th>Penerima</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM keluar k, stock s where s.idbarang = k.idbarang");
+                                        while($data=mysqli_fetch_array($ambilsemuadatastock)){
+                                            $tanggal = $data['tanggal'];
+                                            $namabarang = $data['namabarang'];
+                                            $qty = $data['qty'];
+                                            $penerima = $data['penerima'];
+                                        ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
+                                            <td><?=$tanggal;?></td>
+                                            <td><?=$namabarang?></td>
+                                            <td><?=$qty?></td>
+                                            <td><?=$penerima?></td>
                                         </tr>
+                                        <?php
+                                        };
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -127,7 +138,7 @@ require 'cek.php';
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
 
-         <!-- The Modal -->
+        <!-- The Modal -->
     <div class="modal" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
